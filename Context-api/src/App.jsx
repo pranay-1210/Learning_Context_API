@@ -10,9 +10,15 @@ function App() {
     setTheme(currentTheme => currentTheme === 'light' ? 'dark' : 'light');
   }
 
+  const contextVal = {
+    theme: theme,
+    toggleTheme: toggleTheme
+  };
+
   return (
 
-    <ThemeContext.Provider value={{theme: theme, toggleTheme: toggleTheme}}>
+    // <ThemeContext.Provider value={{theme: theme, toggleTheme: toggleTheme}}>
+    <ThemeContext.Provider value={contextVal}>
       <Welcome />
       <ThemeToggle />
       </ThemeContext.Provider>
