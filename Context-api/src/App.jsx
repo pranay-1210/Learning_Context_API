@@ -1,28 +1,17 @@
-import { useState } from "react";
 import { Welcome } from "./components/Welcome";
 import { ThemeToggle } from "./components/ThemeToggle";
-import ThemeContext from "./store/ThemeContext";
+import { ThemeProvider } from "./store/ThemeContext";
 function App() {
 
-  const [theme, setTheme] = useState('dark');
-
-  const toggleTheme = () => {
-    setTheme(currentTheme => currentTheme === 'light' ? 'dark' : 'light');
-  }
-
-  const contextVal = {
-    theme: theme,
-    toggleTheme: toggleTheme
-  };
 
   return (
 
     // <ThemeContext.Provider value={{theme: theme, toggleTheme: toggleTheme}}>
-    <ThemeContext.Provider value={contextVal}>
+    <ThemeProvider>
       <Welcome />
       <ThemeToggle />
-      </ThemeContext.Provider>
-  )
+      </ThemeProvider>
+  );
 }
 
 export default App
